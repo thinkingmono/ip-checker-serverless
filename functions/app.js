@@ -1,3 +1,6 @@
+require('dotenv').config()
+require('express-async-errors')
+
 //Server
 const express = require('express');
 const app = express();
@@ -33,7 +36,7 @@ app.use(rateLimiter({
 app.get('/.netlify/functions/app/', (req, res) => {
     res.send('<h1>IpChecker</h1>')
 })
-app.use('/.netlify/functions/app/api/v1/check-ip', ipRouter);
+app.use('/.netlify/functions/app/api/v1/ip', ipRouter);
 app.use(notFound)
 app.use(errorHandler)
 
