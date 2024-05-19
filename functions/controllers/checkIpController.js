@@ -10,7 +10,7 @@ const checkIpController = async (req, res) => {
     const userIp = req.socket.remoteAddress;
     console.log(userIp);
 
-    const ipIsoCode = await Reader.open('db/GeoLite2-Country.mmdb').then(reader => {
+    const ipIsoCode = await Reader.open('dist/db/GeoLite2-Country.mmdb').then(reader => {
         const response = reader.country(userIp);
         console.log(response.country.isoCode);
         return response.country.isoCode;
